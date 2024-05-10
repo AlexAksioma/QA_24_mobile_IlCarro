@@ -1,2 +1,8 @@
-package PACKAGE_NAME;public class SplashTests {
+import org.testng.annotations.Test;
+
+public class SplashTests {
+    @Test
+    public void validateVersion(){
+
+    }
 }
