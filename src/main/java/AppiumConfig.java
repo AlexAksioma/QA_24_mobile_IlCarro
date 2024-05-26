@@ -2,7 +2,9 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.net.MalformedURLException;
@@ -15,8 +17,10 @@ public class AppiumConfig {
 //            "appPackage": "com.telran.ilcarro",
 //            "appActivity": ".SplashActivity"
     public static AppiumDriver<MobileElement> driver;
-    @BeforeSuite
-    public void setup(){
+
+
+    @BeforeMethod
+    public void setup() {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", "Android");
         desiredCapabilities.setCapability("deviceName", "Nex5");
@@ -31,10 +35,12 @@ public class AppiumConfig {
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
+
+
     }
 
-    @AfterSuite
-    public void tearDown(){
+    @AfterMethod
+    public void tearDown() {
         //driver.quit();
     }
 }
